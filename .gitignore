@@ -1,5 +1,5 @@
-*
+/*
+!src
 !.gitignore
 !Makefile
 !LICENSE
-!*.c

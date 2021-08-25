@@ -1,8 +1,8 @@
-BINARIES=$(shell ls *.c | sed "s/\.c//")
+BINARIES=$(shell ls src/*.c | sed -E "s/src\/([^.]+)\.c/\1/")
 
 all: $(BINARIES)
 
-%: %.c
+%: src/%.c
 	$(CC) $< -o $@
 
 clean:
