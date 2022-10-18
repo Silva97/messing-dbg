@@ -1,9 +1,24 @@
-BINARIES=$(shell ls src/*.c | sed -E "s/src\/([^.]+)\.c/\1/")
+OUTDIR=bin
+
+BINARIES=$(subst .c,, \
+	$(subst \
+		src, \
+		$(OUTDIR), \
+		$(wildcard src/*.c) \
+	) \
+)
+
+.PHONY: all clean
 
 all: $(BINARIES)
 
-%: src/%.c
+clean:
+	rm -r $(OUTDIR)
+
+$(OUTDIR)/%: src/%.c
+	@mkdir -p "$(dir $@)"
 	$(CC) $< -o $@
 
-clean:
-	rm -f $(BINARIES)
+# Example: make mess_step_over
+%: $(OUTDIR)/%
+	@true Do nothing here...
