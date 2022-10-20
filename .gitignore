@@ -1,2 +1,4 @@
 /bin
+/*.s
 .gdb_history
+.vscode
