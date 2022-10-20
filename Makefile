@@ -13,7 +13,7 @@ BINARIES=$(subst .c,, \
 	) \
 )
 
-.PHONY: all clean asm
+.PHONY: all clean debug asm
 
 all: $(BINARIES)
 
